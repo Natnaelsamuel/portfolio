@@ -1,11 +1,9 @@
 "use client";
-import DotGrid from "@/components/backgrounds/DotGrid/DotGrid";
 import Particles from "@/components/backgrounds/Particles/Particles";
-import RippleGrid from "@/components/backgrounds/RippleGrid/RippleGrid";
-import Squares from "@/components/backgrounds/Squares/Squares";
 import FuzzyText from "@/components/TextAnimations/FuzzyText/FuzzyText";
 import { Button } from "@/components/ui/button";
 import { useTheme } from "next-themes";
+import { ArrowRight } from "lucide-react";
 
 const Hero = () => {
   const { theme } = useTheme();
@@ -46,11 +44,11 @@ const Hero = () => {
             color={theme === "dark" ? "#fff" : "#000"}
             fontWeight={700}
           >
-            I'm Natnael Samuel
+            I&apos;m Natnael Samuel
           </FuzzyText>
         </h1>
         <p className="text-xl mb-3">Full-Stack Developer | UI Enthusiast</p>
-        <Button variant="default">About me</Button>
+        <Button variant="default">About me <ArrowRight/></Button>
       </div>
     </div>
   );
