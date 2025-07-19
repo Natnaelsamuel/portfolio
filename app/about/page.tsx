@@ -1,39 +1,3 @@
-// "use client";
-// import DecryptedText from "@/components/TextAnimations/DecryptedText/DecryptedText";
-// import React from "react";
-
-// const page = () => {
-//   return (
-//     <div className="relative w-screen h-screen overflow-hidden flex items-center justify-center">
-//         <h2>About Me</h2>
-//       <DecryptedText
-//         text="Hey there! I'm Natnael Samuel, a full-stack developer and a soon-to-be
-//             4th-year Computer Science student at Hawassa University. I build modern,
-//             scalable web applications from front to back — turning ideas into clean,
-//             functional, and responsive user experiences. My expertise spans both
-//             frontend and backend development. I work with tools like React, Next.js,
-//             Tailwind CSS, and TypeScript on the frontend, and Node.js, Express,
-//             Prisma, and MySQL on the backend. I also have a strong eye for UI/UX
-//             design, ensuring that everything I build is not only functional but
-//             intuitive and user-friendly. I love solving problems, learning new
-//             technologies, and collaborating with others. Whether I’m building solo
-//             or working as part of a team, I take pride in writing clean,
-//             maintainable code that delivers real value. I'm currently open to
-//             opportunities that allow me to grow, contribute, and make meaningful
-//             impact through technology."
-//         speed={100}
-//         maxIterations={10}
-//         characters="7#3nQ9!xLp*K$vA5%mZ8&"
-//         className="revealed"
-//         animateOn="view"
-//         parentClassName="all-letters"
-//         encryptedClassName="encrypted"
-//         revealDirection="end"
-//       />
-//     </div>
-//   );
-// };
-
 "use client";
 import Particles from "@/components/backgrounds/Particles/Particles";
 import DecryptedText from "@/components/TextAnimations/DecryptedText/DecryptedText";

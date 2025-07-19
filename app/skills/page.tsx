@@ -37,7 +37,7 @@ const SkillsPage = () => {
     },
     backend: {
       "Languages & Runtimes": ["Node.js", "TypeScript", "PHP"],
-      Frameworks: ["Express.js"],
+      Frameworks: ["Express.js", "Next.js API Routes"],
       "Database & ORM": ["MySQL", "PostgreSQL", "Prisma"],
       APIs: ["REST"],
       Others: ["Java", "JavaFX", "Git", "C++"],
