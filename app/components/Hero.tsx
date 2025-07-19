@@ -17,6 +17,11 @@ const Hero = () => {
     return "3.5rem";
   };
 
+  const getTheme = () => {
+    if (theme === "dark" || theme === "Dark" || theme === "DARK") return "#fff";
+    return "#000";
+  };
+
   return (
     <div className="relative w-screen h-screen overflow-hidden">
       {/* Particles with lower z-index and pointer-events-auto */}
@@ -43,7 +48,7 @@ const Hero = () => {
               hoverIntensity={0.1}
               enableHover={true}
               fontSize={getFontSize()}
-              color={theme === "dark" ? "#fff" : "#000"}
+              color={getTheme()}
               fontWeight={500}
             >
               I&apos;m Natnael Samuel
