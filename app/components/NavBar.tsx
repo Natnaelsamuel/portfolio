@@ -15,6 +15,7 @@ const NavBar = () => {
         <div className="hidden md:flex items-center gap-4">
           <Link href="/"><Button variant="ghost">Home</Button></Link>
           <Link href="/about"><Button variant="ghost">About</Button></Link>
+          <Button variant="ghost">Skills</Button>
           <Button variant="ghost">Contact</Button>
           <ModeToggle />
         </div>
@@ -42,6 +43,10 @@ const NavBar = () => {
                   </Link>
                 </SheetClose>
                 
+                <SheetClose asChild>
+                  <Button variant="ghost" className="w-full justify-start">Skills</Button>
+                </SheetClose>
+
                 <SheetClose asChild>
                   <Button variant="ghost" className="w-full justify-start">Contact</Button>
                 </SheetClose>

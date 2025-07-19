@@ -4,7 +4,14 @@ import "./globals.css";
 import { ThemeProvider } from "@/app/providers/theme-provider";
 import NavBar from "./components/NavBar";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
+import { IBM_Plex_Mono } from 'next/font/google';
 
+const ibmPlexMono = IBM_Plex_Mono({
+  subsets: ['latin'],
+  weight: ['400', '700'], // Regular + Bold
+  variable: '--font-plex-mono', // CSS variable name
+  display: 'swap', // Prevents layout shift
+});
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -28,7 +35,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${ibmPlexMono.variable} antialiased`}
       >
         <ThemeProvider
           attribute="class"
