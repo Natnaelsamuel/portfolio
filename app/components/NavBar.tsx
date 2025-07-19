@@ -8,15 +8,15 @@ import Link from "next/link";
 const NavBar = () => {
   return (
     <>
-      <nav className="flex justify-between items-center px-6 py-3 bg-background text-foreground rounded-full shadow-xl w-[90%] sm:w-4/6 md:w-3/5 lg:w-2/5 fixed z-[51] top-4 left-1/2 -translate-x-1/2 dark:shadow-secondary">
+      <nav className="flex justify-between items-center px-6 py-3 bg-background text-foreground rounded-full shadow-xl w-[90%] sm:w-4/6 md:w-3/5 lg:w-2/5 fixed z-[52] top-4 left-1/2 -translate-x-1/2 dark:shadow-secondary">
         <div className="font-bold">Logo</div>
         
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-4">
-          <Link href="/"><Button variant="ghost">Home</Button></Link>
-          <Link href="/about"><Button variant="ghost">About</Button></Link>
-          <Button variant="ghost">Skills</Button>
-          <Button variant="ghost">Contact</Button>
+          <Link href="/"><Button variant="link">Home</Button></Link>
+          <Link href="/about"><Button variant="link">About</Button></Link>
+          <Link href="/skills"><Button variant="link">Skills</Button></Link>
+          <Button variant="link">Contact</Button>
           <ModeToggle />
         </div>
         
@@ -42,9 +42,11 @@ const NavBar = () => {
                     <Button variant="ghost" className="w-full justify-start">About</Button>
                   </Link>
                 </SheetClose>
-                
+
                 <SheetClose asChild>
-                  <Button variant="ghost" className="w-full justify-start">Skills</Button>
+                  <Link href='/skills'>
+                    <Button variant="ghost" className="w-full justify-start">Skills</Button>
+                  </Link>
                 </SheetClose>
 
                 <SheetClose asChild>
