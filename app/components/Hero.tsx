@@ -34,15 +34,15 @@ const Hero = () => {
       </div>
 
       <div className="relative z-50 flex flex-col gap-1 items-center justify-center h-full text-black dark:text-white text-center">
-        <h1 className="text-5xl font-bold mb-4 dark:text-white">
+        <h1 className="text-5xl mb-4 dark:text-white">
           Hi,
           <FuzzyText
-            baseIntensity={0.4}
+            baseIntensity={0.2}
             hoverIntensity={0.1}
             enableHover={true}
-            fontSize={"3.7rem"}
+            fontSize={"3.5rem"}
             color={theme === "dark" ? "#fff" : "#000"}
-            fontWeight={700}
+            fontWeight={500}
           >
             I&apos;m Natnael Samuel
           </FuzzyText>

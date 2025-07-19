@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/app/providers/theme-provider";
 import NavBar from "./components/NavBar";
+import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -35,7 +36,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <NavBar />
+            <NavBar />
           <main>{children}</main>
         </ThemeProvider>
       </body>
