@@ -199,9 +199,9 @@ const SkillsPage = () => {
               Always Learning
             </h3>
             <p className="text-gray-600 dark:text-gray-300">
-              Technology evolves rapidly, and so do I. I'm constantly exploring
-              new frameworks, tools, and best practices to stay current and
-              deliver the best solutions for every project.
+              Technology evolves rapidly, and so do I. I&apos;m constantly
+              exploring new frameworks, tools, and best practices to stay
+              current and deliver the best solutions for every project.
             </p>
           </div>
         </div>

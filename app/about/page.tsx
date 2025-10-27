@@ -45,7 +45,7 @@ const About = () => {
               <Code2 className="w-6 h-6 text-white" />
             </div>
             <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-white font-display">
-              Hello, I'm Natnael Samuel
+              Hello, I&apos;m Natnael Samuel
             </h2>
           </div>
 

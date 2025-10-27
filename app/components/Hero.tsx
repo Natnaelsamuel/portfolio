@@ -52,7 +52,7 @@ const Hero = () => {
               delay={200}
               className="text-xl sm:text-2xl md:text-3xl font-light text-gray-600 dark:text-gray-300 tracking-wide font-display"
             >
-              Hello, I'm
+              Hello, I&apos;m
             </AnimatedText>
           </div>
 

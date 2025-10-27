@@ -25,7 +25,7 @@ const Contact = () => {
               Get In <span className="text-emerald-gradient">Touch</span>
             </h1>
             <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-              Let's work together to bring your ideas to life
+              Let&apos;s work together to bring your ideas to life
             </p>
           </div>
         </div>
@@ -52,7 +52,7 @@ const Contact = () => {
           <div className="space-y-4">
             <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6">
               <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-4 font-display">
-                Let's Connect
+                Let&apos;s Connect
               </h2>
 
               <div className="space-y-3">
@@ -223,9 +223,9 @@ const Contact = () => {
               Ready to Start Your Project?
             </h3>
             <p className="text-gray-600 dark:text-gray-300 mb-4 max-w-2xl mx-auto text-sm">
-              I'm always excited to work on new projects and collaborate with
-              amazing people. Whether you have a clear vision or just an idea,
-              let's discuss how we can bring it to life.
+              I&apos;m always excited to work on new projects and collaborate
+              with amazing people. Whether you have a clear vision or just an
+              idea, let&apos;s discuss how we can bring it to life.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Button

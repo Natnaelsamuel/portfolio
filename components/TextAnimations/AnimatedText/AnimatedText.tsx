@@ -1,8 +1,9 @@
 "use client";
 import { useState, useEffect } from "react";
+import type { ReactNode } from "react";
 
 interface AnimatedTextProps {
-  children: string;
+  children: ReactNode;
   className?: string;
   delay?: number;
   duration?: number;
@@ -42,5 +43,3 @@ const AnimatedText = ({
 };
 
 export default AnimatedText;
-
-
