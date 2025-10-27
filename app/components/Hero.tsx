@@ -1,4 +1,5 @@
 "use client";
+import { useState, useRef, useEffect } from "react";
 import Particles from "@/components/backgrounds/Particles/Particles";
 import AnimatedText from "@/components/TextAnimations/AnimatedText/AnimatedText";
 import TypewriterText from "@/components/TextAnimations/TypewriterText/TypewriterText";
@@ -19,6 +20,28 @@ import { useWindowSize } from "react-use";
 const Hero = () => {
   const { theme } = useTheme();
   const { width } = useWindowSize();
+
+  // Socials panel open state for mobile (toggled on click)
+  const [socialOpen, setSocialOpen] = useState(false);
+  const socialRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const handleOutside = (e: MouseEvent | TouchEvent) => {
+      if (!socialRef.current) return;
+      const target = e.target as Node;
+      if (socialRef.current && !socialRef.current.contains(target)) {
+        setSocialOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleOutside);
+    document.addEventListener("touchstart", handleOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleOutside);
+      document.removeEventListener("touchstart", handleOutside);
+    };
+  }, []);
 
   const getFontSize = () => {
     if (width < 640) return "2.5rem";
@@ -149,12 +172,20 @@ const Hero = () => {
 
       {/* Clean Floating Social Hub */}
       <div className="fixed bottom-6 right-6 z-50 group">
-        <div className="relative">
+        <div ref={socialRef} className="relative">
           {/* Subtle Glow Effect */}
           <div className="absolute inset-0 rounded-full bg-emerald-500/10 blur-lg group-hover:bg-emerald-500/20 transition-all duration-300 scale-125"></div>
 
           {/* Expanded Social Icons */}
-          <div className="absolute bottom-0 right-0 mb-16 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+          <div
+            className={
+              `absolute bottom-0 right-0 mb-16 transition-all duration-300 transform ` +
+              (socialOpen
+                ? "opacity-100 translate-y-0 pointer-events-auto"
+                : "opacity-0 translate-y-2 pointer-events-none") +
+              " group-hover:opacity-100 group-hover:translate-y-0"
+            }
+          >
             <div className="flex flex-col gap-2">
               {/* GitHub */}
               <a
@@ -205,7 +236,12 @@ const Hero = () => {
           </div>
 
           {/* Main Clean Button */}
-          <button className="relative w-12 h-12 bg-white dark:bg-gray-800 rounded-lg flex items-center justify-center shadow-lg border border-gray-200 dark:border-gray-700 hover:border-emerald-500 transition-all duration-300 transform hover:scale-105 group-hover:rotate-6">
+          <button
+            onClick={() => setSocialOpen((s) => !s)}
+            aria-expanded={socialOpen}
+            aria-label="Toggle social links"
+            className="relative w-12 h-12 bg-white dark:bg-gray-800 rounded-lg flex items-center justify-center shadow-lg border border-gray-200 dark:border-gray-700 hover:border-emerald-500 transition-all duration-300 transform hover:scale-105 group-hover:rotate-6"
+          >
             {/* Simple Grid Pattern */}
             <div className="relative w-6 h-6">
               <div className="absolute inset-0 grid grid-cols-2 gap-0.5">
