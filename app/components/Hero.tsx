@@ -15,11 +15,10 @@ import {
   Twitter,
   Mail,
 } from "lucide-react";
-import { useWindowSize } from "react-use";
+// removed useWindowSize to avoid SSR sizing mismatch; using CSS clamp for responsive font-size
 
 const Hero = () => {
   const { theme } = useTheme();
-  const { width } = useWindowSize();
 
   // Socials panel open state for mobile (toggled on click)
   const [socialOpen, setSocialOpen] = useState(false);
@@ -43,12 +42,7 @@ const Hero = () => {
     };
   }, []);
 
-  const getFontSize = () => {
-    if (width < 640) return "2.5rem";
-    if (width < 768) return "3.2rem";
-    if (width < 1024) return "4rem";
-    return "4.5rem";
-  };
+  // using CSS clamp on the h1 to provide smooth responsive sizing without JS
 
   return (
     <div className="relative w-screen h-screen overflow-hidden">
@@ -83,7 +77,7 @@ const Hero = () => {
           <div className="mb-8">
             <h1
               className="font-display font-bold text-gray-900 dark:text-white leading-tight"
-              style={{ fontSize: getFontSize() }}
+              style={{ fontSize: "clamp(2.5rem, 6vw, 4.5rem)" }}
             >
               <AnimatedText delay={600} className="block">
                 Natnael Samuel
