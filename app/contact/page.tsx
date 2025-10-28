@@ -65,7 +65,7 @@ const Contact = () => {
                       Email
                     </p>
                     <p className="text-gray-900 dark:text-white">
-                      natnael@example.com
+                      natisami901@gmail.com
                     </p>
                   </div>
                 </div>
@@ -79,7 +79,7 @@ const Contact = () => {
                       Phone
                     </p>
                     <p className="text-gray-900 dark:text-white">
-                      +1 (555) 123-4567
+                      +251 941264520
                     </p>
                   </div>
                 </div>
@@ -93,7 +93,7 @@ const Contact = () => {
                       Location
                     </p>
                     <p className="text-gray-900 dark:text-white">
-                      San Francisco, CA
+                      Addis Ababa, Ethiopia
                     </p>
                   </div>
                 </div>
@@ -106,30 +106,53 @@ const Contact = () => {
                 Follow Me
               </h3>
               <div className="flex gap-3">
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="flex items-center gap-2 hover-emerald-border hover-emerald-text"
+                <a
+                  href="https://github.com/Natnaelsamuel"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block"
                 >
-                  <Github className="w-4 h-4" />
-                  GitHub
-                </Button>
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="flex items-center gap-2 hover-emerald-border hover-emerald-text"
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className="flex items-center gap-2 hover-emerald-border hover-emerald-text"
+                  >
+                    <Github className="w-4 h-4" />
+                    GitHub
+                  </Button>
+                </a>
+
+                <a
+                  href="https://www.linkedin.com/in/natnael-samuel-a321bb336/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block"
                 >
-                  <Linkedin className="w-4 h-4" />
-                  LinkedIn
-                </Button>
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="flex items-center gap-2 hover-emerald-border hover-emerald-text"
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className="flex items-center gap-2 hover-emerald-border hover-emerald-text"
+                  >
+                    <Linkedin className="w-4 h-4" />
+                    LinkedIn
+                  </Button>
+                </a>
+
+                <a
+                  href="https://twitter.com/Natnael_sam"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block"
                 >
-                  <Twitter className="w-4 h-4" />
-                  Twitter
-                </Button>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className="flex items-center gap-2 hover-emerald-border hover-emerald-text"
+                  >
+                    <Twitter className="w-4 h-4" />
+                    Twitter
+                  </Button>
+                </a>
               </div>
             </div>
           </div>
