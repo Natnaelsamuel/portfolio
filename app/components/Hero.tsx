@@ -189,7 +189,7 @@ const Hero = () => {
             <div className="flex flex-col gap-2">
               {/* GitHub */}
               <a
-                href="https://github.com/yourusername"
+                href="https://github.com/Natnaelsamuel"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="relative group/social"
@@ -201,7 +201,7 @@ const Hero = () => {
 
               {/* LinkedIn */}
               <a
-                href="https://linkedin.com/in/yourusername"
+                href="https://www.linkedin.com/in/natnael-samuel-a321bb336/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="relative group/social"
@@ -213,7 +213,7 @@ const Hero = () => {
 
               {/* Twitter */}
               <a
-                href="https://twitter.com/yourusername"
+                href="https://twitter.com/Natnael_sam"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="relative group/social"
@@ -225,7 +225,7 @@ const Hero = () => {
 
               {/* Email */}
               <a
-                href="mailto:natnael@example.com"
+                href="mailto:natisami901@gmail.com"
                 className="relative group/social"
               >
                 <div className="w-10 h-10 bg-white dark:bg-gray-800 rounded-lg flex items-center justify-center shadow-lg border border-gray-200 dark:border-gray-700 hover:border-emerald-500 transition-all duration-200 transform hover:scale-105">
