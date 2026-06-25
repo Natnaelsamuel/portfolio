@@ -1,4 +1,6 @@
 "use client";
+import Image from "next/image";
+import { useTheme } from "next-themes";
 import {
   Card,
   CardContent,
@@ -8,184 +10,213 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, Github, ArrowLeft } from "lucide-react";
-import Link from "next/link";
+import { ExternalLink, Github, Lock } from "lucide-react";
 import Particles from "@/components/backgrounds/Particles/Particles";
 
 const projects = [
   {
     id: 1,
-    title: "E-Commerce Platform",
+    title: "Figa LLC",
     description:
-      "A full-stack e-commerce solution with modern UI, payment integration, and admin dashboard.",
-    technologies: ["React", "Node.js", "MongoDB", "Stripe", "Tailwind CSS"],
-    githubUrl: "https://github.com/yourusername/ecommerce-platform",
-    liveUrl: "https://ecommerce-demo.vercel.app",
+      "A caregiver platform connecting families with trusted caregivers through a clear, service-focused web experience.",
+    technologies: ["Next.js", "PostgreSQL"],
+    githubUrl: "https://github.com/DEVS-INT/FIGA.git",
+    liveUrl: "https://figa-seven.vercel.app",
+    label: "Featured",
+    image: "/projects/figa-llc.png",
     featured: true,
   },
   {
     id: 2,
-    title: "Task Management App",
+    title: "BTTS",
     description:
-      "A collaborative task management application with real-time updates and team collaboration features.",
-    technologies: [
-      "Next.js",
-      "TypeScript",
-      "Prisma",
-      "PostgreSQL",
-      "Socket.io",
-    ],
-    githubUrl: "https://github.com/yourusername/task-manager",
-    liveUrl: "https://taskmanager-demo.vercel.app",
+      "A bus ticketing and tracking system built for trip discovery, booking flows, and travel management across a modern interface.",
+    technologies: ["React", "Django", "PostgreSQL"],
+    githubUrl: "https://github.com/Natnaelsamuel/BTTS.git",
+    liveUrl: "",
+    label: "Backend",
+    image: "/projects/btts.png",
     featured: true,
   },
   {
     id: 3,
-    title: "Weather Dashboard",
+    title: "Game Hub",
     description:
-      "A responsive weather dashboard with location-based forecasts and interactive maps.",
-    technologies: ["Vue.js", "Chart.js", "OpenWeather API", "CSS3"],
-    githubUrl: "https://github.com/yourusername/weather-dashboard",
-    liveUrl: "https://weather-demo.netlify.app",
+      "A responsive game discovery app for browsing titles, filtering genres, and exploring ratings in a polished dark interface.",
+    technologies: ["React"],
+    githubUrl: "https://github.com/Natnaelsamuel/Game-Hub.git",
+    liveUrl: "https://game-hub-alpha-pearl.vercel.app",
+    label: "Frontend",
+    image: "/projects/gamehub.png",
     featured: false,
   },
   {
     id: 4,
-    title: "Portfolio Website",
+    title: "SMS",
     description:
-      "A modern, responsive portfolio website with smooth animations and dark mode support.",
-    technologies: ["Next.js", "Framer Motion", "Tailwind CSS", "TypeScript"],
-    githubUrl: "https://github.com/yourusername/portfolio",
-    liveUrl: "https://natnael-portfolio.vercel.app",
-    featured: false,
-  },
-  {
-    id: 5,
-    title: "Chat Application",
-    description:
-      "Real-time chat application with user authentication and file sharing capabilities.",
-    technologies: ["React", "Socket.io", "Express", "JWT", "Multer"],
-    githubUrl: "https://github.com/yourusername/chat-app",
-    liveUrl: "https://chat-demo.herokuapp.com",
-    featured: false,
-  },
-  {
-    id: 6,
-    title: "Blog CMS",
-    description:
-      "A content management system for blogs with markdown support and SEO optimization.",
-    technologies: ["Next.js", "MDX", "Sanity", "Vercel", "Tailwind CSS"],
-    githubUrl: "https://github.com/yourusername/blog-cms",
-    liveUrl: "https://blog-cms-demo.vercel.app",
+      "A school management system built as my final-year university project for Ethiopian high schools, focused on structured academic workflows and role-based access.",
+    technologies: ["Next.js", "FastAPI", "PostgreSQL"],
+    githubUrl: "",
+    liveUrl: "https://front-end-q87h.vercel.app/",
+    label: "Private Code",
+    image: "/projects/sms.png",
     featured: false,
   },
 ];
 
 export default function Projects() {
+  const { theme, resolvedTheme } = useTheme();
   const featuredProjects = projects.filter((project) => project.featured);
   const otherProjects = projects.filter((project) => !project.featured);
+  const effectiveTheme = resolvedTheme ?? theme ?? "light";
+  const isDark = effectiveTheme === "dark";
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Header Section */}
-      <div className="relative pt-32 pb-8 px-6">
-        <div className="max-w-6xl mx-auto">
-          {/* Page Title */}
-          <div className="text-center mb-8">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-3">
-              My <span className="text-emerald-gradient">Projects</span>
-            </h1>
-            <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-              A collection of my recent work showcasing full-stack development
-              skills, modern technologies, and creative problem-solving.
-            </p>
-          </div>
-        </div>
-      </div>
-
       {/* Particles Background */}
       <div className="absolute inset-0 z-0">
         <Particles
-          particleColors={["#ffffff", "#ffffff"]}
-          particleCount={200}
+          particleColors={isDark ? ["#ffffff", "#ffffff"] : ["#cbd5e1", "#94a3b8"]}
+          particleCount={isDark ? 500 : 760}
           particleSpread={10}
-          speed={0.2}
+          speed={0.42}
           particleBaseSize={100}
           moveParticlesOnHover={true}
-          alphaParticles={false}
+          alphaParticles={!isDark}
           disableRotation={false}
         />
       </div>
 
-      {/* Main Content */}
-      <div className="relative z-10 max-w-6xl mx-auto px-6 pb-12">
-        {/* Featured Projects */}
-        <div className="mb-10">
-          <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-white mb-4 text-center">
-            Featured Projects
-          </h2>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div className="relative z-10 mx-auto max-w-6xl px-6 pb-12 pt-32">
+        <div className="mb-14">
+          <div className="mb-6 flex items-end justify-between gap-4">
+            <div>
+              <p className="mb-3 text-sm font-medium uppercase tracking-[0.26em] text-emerald-600 dark:text-emerald-400">
+                Selected Work
+              </p>
+              <h2 className="font-display text-4xl font-semibold tracking-tight text-gray-900 dark:text-white sm:text-5xl">
+                Featured Projects
+              </h2>
+              <p className="mt-2 text-sm text-gray-600 dark:text-gray-300">
+                A small selection of work that reflects how I design and build
+                products.
+              </p>
+            </div>
+            <Badge
+              variant="outline"
+              className="hidden rounded-full border-gray-300 bg-white/70 px-4 py-1 text-xs uppercase tracking-[0.18em] text-gray-600 dark:border-gray-700 dark:bg-gray-900/30 dark:text-gray-300 sm:inline-flex"
+            >
+              4 projects
+            </Badge>
+          </div>
+
+          <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
             {featuredProjects.map((project) => (
               <Card
                 key={project.id}
-                className="group hover:shadow-lg transition-all duration-300 border-0 bg-white dark:bg-gray-800 shadow-md hover:shadow-xl"
+                className="group overflow-hidden rounded-[28px] border border-gray-200/80 bg-white/92 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl dark:border-gray-700/70 dark:bg-gray-800/92"
               >
-                <div className="relative overflow-hidden rounded-t-lg">
-                  <div className="w-full h-40 bg-emerald-gradient-light flex items-center justify-center">
-                    <div className="text-white text-3xl font-bold opacity-80">
-                      {project.title.charAt(0)}
+                <div className="relative overflow-hidden">
+                  <div className="relative h-64">
+                    <Image
+                      src={project.image}
+                      alt={`${project.title} preview`}
+                      fill
+                      className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent" />
+                    <div className="absolute inset-x-0 bottom-0 p-6 text-white">
+                      <p className="mb-2 text-xs uppercase tracking-[0.22em] text-white/80">
+                        {project.technologies.join(" • ")}
+                      </p>
+                      <div className="text-4xl font-semibold tracking-tight">
+                        {project.title}
+                      </div>
                     </div>
                   </div>
                   <div className="absolute top-3 right-3">
-                    <Badge className="bg-emerald-500 text-white hover:bg-emerald-600">
-                      Featured
+                    <Badge className="rounded-full border border-white/20 bg-white/15 px-3 py-1 text-white backdrop-blur">
+                      {project.label}
                     </Badge>
                   </div>
                 </div>
-                <CardHeader className="pb-2">
-                  <CardTitle className="text-xl font-semibold text-gray-900 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
+                <CardHeader className="pb-3">
+                  <CardTitle className="text-2xl font-semibold text-gray-900 transition-colors group-hover:text-emerald-600 dark:text-white dark:group-hover:text-emerald-400">
                     {project.title}
                   </CardTitle>
-                  <CardDescription className="text-gray-600 dark:text-gray-300">
+                  <CardDescription className="text-sm leading-7 text-gray-600 dark:text-gray-300 sm:text-base">
                     {project.description}
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="pt-0">
-                  <div className="flex flex-wrap gap-2 mb-4">
+                  <div className="mb-5 flex flex-wrap gap-2">
                     {project.technologies.map((tech) => (
-                      <Badge key={tech} variant="secondary" className="text-xs">
+                      <Badge
+                        key={tech}
+                        variant="secondary"
+                        className="rounded-full bg-gray-100 px-3 py-1 text-xs text-gray-700 dark:bg-gray-700/70 dark:text-gray-200"
+                      >
                         {tech}
                       </Badge>
                     ))}
                   </div>
-                  <div className="flex gap-3">
-                    <Button asChild size="sm" className="flex-1">
-                      <a
-                        href={project.liveUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-2"
+
+                  <div className="flex flex-wrap gap-3">
+                    {project.liveUrl ? (
+                      <Button
+                        asChild
+                        size="sm"
+                        className="rounded-full bg-emerald-600 px-5 hover:bg-emerald-700"
                       >
-                        <ExternalLink className="w-4 h-4" />
-                        Live Demo
-                      </a>
-                    </Button>
-                    <Button
-                      asChild
-                      variant="outline"
-                      size="sm"
-                      className="flex-1"
-                    >
-                      <a
-                        href={project.githubUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-2"
+                        <a
+                          href={project.liveUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-2"
+                        >
+                          <ExternalLink className="h-4 w-4" />
+                          Live demo
+                        </a>
+                      </Button>
+                    ) : (
+                      <Button
+                        size="sm"
+                        variant="outline"
+                        disabled
+                        className="rounded-full px-5"
                       >
-                        <Github className="w-4 h-4" />
-                        Code
-                      </a>
-                    </Button>
+                        Live demo unavailable
+                      </Button>
+                    )}
+
+                    {project.githubUrl ? (
+                      <Button
+                        asChild
+                        variant="outline"
+                        size="sm"
+                        className="rounded-full px-5"
+                      >
+                        <a
+                          href={project.githubUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-2"
+                        >
+                          <Github className="h-4 w-4" />
+                          Source code
+                        </a>
+                      </Button>
+                    ) : (
+                      <Button
+                        size="sm"
+                        variant="outline"
+                        disabled
+                        className="rounded-full px-5"
+                      >
+                        <Lock className="mr-2 h-4 w-4" />
+                        Private repository
+                      </Button>
+                    )}
                   </div>
                 </CardContent>
               </Card>
@@ -193,78 +224,110 @@ export default function Projects() {
           </div>
         </div>
 
-        {/* Other Projects */}
         <div>
-          <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-white mb-4 text-center">
-            Other Projects
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="mb-6">
+            <p className="mb-3 text-sm font-medium uppercase tracking-[0.26em] text-emerald-600 dark:text-emerald-400">
+              Additional Work
+            </p>
+            <h2 className="font-display text-3xl font-semibold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
+              More Work
+            </h2>
+            <p className="mt-2 text-sm text-gray-600 dark:text-gray-300">
+              Additional projects that show range across interface work and
+              backend-heavy systems.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
             {otherProjects.map((project) => (
               <Card
                 key={project.id}
-                className="group hover:shadow-lg transition-all duration-300 border-0 bg-white dark:bg-gray-800 shadow-md hover:shadow-xl"
+                className="group overflow-hidden rounded-[28px] border border-gray-200/80 bg-white/92 shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl dark:border-gray-700/70 dark:bg-gray-800/92"
               >
-                <div className="relative overflow-hidden rounded-t-lg">
-                  <div className="w-full h-32 bg-emerald-gradient-light flex items-center justify-center">
-                    <div className="text-white text-2xl font-bold opacity-80">
-                      {project.title.charAt(0)}
+                <div className="relative h-48 overflow-hidden">
+                  <Image
+                    src={project.image}
+                    alt={`${project.title} preview`}
+                    fill
+                    className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/15 to-transparent" />
+                  <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-5 text-white">
+                    <div>
+                      <p className="mb-2 text-xs uppercase tracking-[0.2em] text-white/75">
+                        {project.label}
+                      </p>
+                      <div className="text-2xl font-semibold">{project.title}</div>
                     </div>
+                    <Badge className="rounded-full border border-white/20 bg-white/15 text-white backdrop-blur">
+                      {project.technologies.length} stack
+                    </Badge>
                   </div>
                 </div>
                 <CardHeader className="pb-2">
-                  <CardTitle className="text-lg font-semibold text-gray-900 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
+                  <CardTitle className="text-xl font-semibold text-gray-900 transition-colors group-hover:text-emerald-600 dark:text-white dark:group-hover:text-emerald-400">
                     {project.title}
                   </CardTitle>
-                  <CardDescription className="text-sm text-gray-600 dark:text-gray-300 line-clamp-2">
+                  <CardDescription className="text-sm leading-6 text-gray-600 dark:text-gray-300">
                     {project.description}
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="pt-0">
-                  <div className="flex flex-wrap gap-1 mb-3">
-                    {project.technologies.slice(0, 3).map((tech) => (
-                      <Badge key={tech} variant="secondary" className="text-xs">
+                  <div className="mb-4 flex flex-wrap gap-2">
+                    {project.technologies.map((tech) => (
+                      <Badge
+                        key={tech}
+                        variant="secondary"
+                        className="rounded-full bg-gray-100 px-3 py-1 text-xs text-gray-700 dark:bg-gray-700/70 dark:text-gray-200"
+                      >
                         {tech}
                       </Badge>
                     ))}
-                    {project.technologies.length > 3 && (
-                      <Badge variant="secondary" className="text-xs">
-                        +{project.technologies.length - 3}
-                      </Badge>
-                    )}
                   </div>
-                  <div className="flex gap-2">
-                    <Button
-                      asChild
-                      size="sm"
-                      variant="outline"
-                      className="flex-1 text-xs"
-                    >
-                      <a
-                        href={project.liveUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-1"
+
+                  <div className="flex flex-wrap gap-3">
+                    {project.liveUrl ? (
+                      <Button
+                        asChild
+                        size="sm"
+                        variant="outline"
+                        className="rounded-full"
                       >
-                        <ExternalLink className="w-3 h-3" />
-                        Demo
-                      </a>
-                    </Button>
-                    <Button
-                      asChild
-                      size="sm"
-                      variant="outline"
-                      className="flex-1 text-xs"
-                    >
-                      <a
-                        href={project.githubUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-1"
+                        <a
+                          href={project.liveUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-2"
+                        >
+                          <ExternalLink className="h-3.5 w-3.5" />
+                          Demo
+                        </a>
+                      </Button>
+                    ) : null}
+
+                    {project.githubUrl ? (
+                      <Button
+                        asChild
+                        size="sm"
+                        variant="outline"
+                        className="rounded-full"
                       >
-                        <Github className="w-3 h-3" />
-                        Code
-                      </a>
-                    </Button>
+                        <a
+                          href={project.githubUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-2"
+                        >
+                          <Github className="h-3.5 w-3.5" />
+                          Code
+                        </a>
+                      </Button>
+                    ) : (
+                      <Button size="sm" variant="outline" disabled className="rounded-full">
+                        <Lock className="mr-2 h-3.5 w-3.5" />
+                        Private
+                      </Button>
+                    )}
                   </div>
                 </CardContent>
               </Card>

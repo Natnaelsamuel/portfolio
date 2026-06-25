@@ -2,11 +2,15 @@
 import { useState } from "react";
 import Particles from "@/components/backgrounds/Particles/Particles";
 import TypewriterText from "@/components/TextAnimations/TypewriterText/TypewriterText";
+import { useTheme } from "next-themes";
 
 const About = () => {
+  const { theme, resolvedTheme } = useTheme();
   const [showSecond, setShowSecond] = useState(false);
   const [showThird, setShowThird] = useState(false);
   const [showFourth, setShowFourth] = useState(false);
+  const effectiveTheme = resolvedTheme ?? theme ?? "light";
+  const isDark = effectiveTheme === "dark";
 
   return (
     <div className="relative min-h-screen overflow-x-hidden bg-background">
@@ -14,25 +18,25 @@ const About = () => {
       {/* Particles Background */}
       <div className="absolute inset-0 z-0">
         <Particles
-          particleColors={["#ffffff", "#ffffff"]}
-          particleCount={200}
+          particleColors={isDark ? ["#ffffff", "#ffffff"] : ["#cbd5e1", "#94a3b8"]}
+          particleCount={isDark ? 500 : 760}
           particleSpread={10}
-          speed={0.2}
+          speed={0.42}
           particleBaseSize={100}
           moveParticlesOnHover={true}
-          alphaParticles={false}
+          alphaParticles={!isDark}
           disableRotation={false}
         />
       </div>
 
       {/* Main Content */}
-      <div className="relative z-10 mx-auto max-w-3xl px-6 pb-16 pt-32">
-        <div className="rounded-3xl border border-gray-200/80 bg-white/92 p-8 shadow-lg backdrop-blur-sm dark:border-gray-700/70 dark:bg-gray-800/92 sm:p-10">
+      <div className="relative z-10 mx-auto max-w-4xl px-6 pb-16 pt-32">
+        <div className="rounded-[28px] border border-gray-200/80 bg-white/92 p-8 shadow-lg backdrop-blur-sm dark:border-gray-700/70 dark:bg-gray-800/92 sm:p-10">
           <div className="mb-8">
-            <p className="mb-3 text-sm font-medium uppercase tracking-[0.22em] text-emerald-600 dark:text-emerald-400">
+            <p className="mb-3 text-sm font-medium uppercase tracking-[0.26em] text-emerald-600 dark:text-emerald-400">
               About Me
             </p>
-            <h2 className="text-3xl font-semibold tracking-tight text-gray-900 dark:text-white sm:text-4xl font-display">
+            <h2 className="text-4xl font-semibold tracking-tight text-gray-900 dark:text-white sm:text-5xl font-display">
               Hello, I&apos;m Natnael Samuel
             </h2>
           </div>
@@ -40,7 +44,7 @@ const About = () => {
           <div className="space-y-6 text-base leading-8 text-gray-600 dark:text-gray-300 sm:text-lg font-sans">
             <p>
               <TypewriterText
-                text="Hello, I'm Natnael Samuel, a Computer Science graduate from Hawassa University and a passionate full-stack developer."
+                text="a Computer Science graduate from Hawassa University and a passionate full-stack developer."
                 speed={22}
                 delay={300}
                 className="block"

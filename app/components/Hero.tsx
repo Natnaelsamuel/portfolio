@@ -69,16 +69,18 @@ const Hero = () => {
             >
               Natnael Samuel
               <span className="mt-2 block text-balance text-[0.45em] font-medium leading-[1.2] tracking-normal text-gray-600 dark:text-gray-300 sm:text-[0.42em]">
-                Building polished digital products that feel clear, modern, and
-                genuinely useful.
+                Building
+                <span className="text-emerald-gradient"> modern digital products</span>
+                {" "}that feel thoughtful, inviting, and genuinely useful.
               </span>
             </h1>
           </AnimatedText>
 
           <AnimatedText delay={900} className="mt-6 block">
             <p className="mx-auto max-w-2xl text-base leading-7 text-gray-600 dark:text-gray-300 sm:text-lg">
-              I help turn ideas into responsive web experiences with clean
-              design, thoughtful interactions, and maintainable code.
+              I help startups, teams, and founders turn ideas into responsive
+              web experiences with clean design, thoughtful interactions, and
+              maintainable code.
             </p>
           </AnimatedText>
 
@@ -111,9 +113,11 @@ const Hero = () => {
 
           <AnimatedText delay={1550} className="mt-10 block">
             <div className="flex flex-wrap items-center justify-center gap-4 text-xs text-gray-500 dark:text-gray-400 sm:text-sm">
-              <span>Available for freelance work</span>
+              <span>Design-minded development</span>
               <span className="h-1 w-1 rounded-full bg-gray-400 dark:bg-gray-500" />
               <span>Based in Ethiopia</span>
+              <span className="h-1 w-1 rounded-full bg-gray-400 dark:bg-gray-500" />
+              <span>Open to meaningful collaborations</span>
             </div>
           </AnimatedText>
         </div>
