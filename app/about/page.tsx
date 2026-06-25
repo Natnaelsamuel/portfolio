@@ -1,26 +1,15 @@
 "use client";
+import { useState } from "react";
 import Particles from "@/components/backgrounds/Particles/Particles";
 import TypewriterText from "@/components/TextAnimations/TypewriterText/TypewriterText";
-import { ArrowLeft, Code2 } from "lucide-react";
-import Link from "next/link";
 
 const About = () => {
+  const [showSecond, setShowSecond] = useState(false);
+  const [showThird, setShowThird] = useState(false);
+  const [showFourth, setShowFourth] = useState(false);
+
   return (
-    <div className="min-h-screen bg-background">
-      {/* Header Section */}
-      <div className="relative pt-32 pb-8 px-6">
-        <div className="max-w-4xl mx-auto">
-          {/* Page Title */}
-          <div className="text-center mb-8">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-3">
-              About <span className="text-emerald-gradient">Me</span>
-            </h1>
-            <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-              Get to know the person behind the code
-            </p>
-          </div>
-        </div>
-      </div>
+    <div className="relative min-h-screen overflow-x-hidden bg-background">
 
       {/* Particles Background */}
       <div className="absolute inset-0 z-0">
@@ -37,41 +26,62 @@ const About = () => {
       </div>
 
       {/* Main Content */}
-      <div className="relative z-10 max-w-4xl mx-auto px-6 pb-12">
-        {/* Main About Card */}
-        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8">
-          <div className="flex items-center gap-4 mb-6">
-            <div className="w-12 h-12 bg-emerald-gradient rounded-xl flex items-center justify-center shadow-emerald">
-              <Code2 className="w-6 h-6 text-white" />
-            </div>
-            <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-white font-display">
+      <div className="relative z-10 mx-auto max-w-3xl px-6 pb-16 pt-32">
+        <div className="rounded-3xl border border-gray-200/80 bg-white/92 p-8 shadow-lg backdrop-blur-sm dark:border-gray-700/70 dark:bg-gray-800/92 sm:p-10">
+          <div className="mb-8">
+            <p className="mb-3 text-sm font-medium uppercase tracking-[0.22em] text-emerald-600 dark:text-emerald-400">
+              About Me
+            </p>
+            <h2 className="text-3xl font-semibold tracking-tight text-gray-900 dark:text-white sm:text-4xl font-display">
               Hello, I&apos;m Natnael Samuel
             </h2>
           </div>
 
-          <div className="prose prose-gray dark:prose-invert max-w-none">
-            <div className="text-base sm:text-lg text-gray-600 dark:text-gray-300 leading-relaxed font-sans">
+          <div className="space-y-6 text-base leading-8 text-gray-600 dark:text-gray-300 sm:text-lg font-sans">
+            <p>
               <TypewriterText
-                text="I'm a passionate full-stack developer who loves turning ideas into clean, functional, and responsive web applications. With expertise spanning both frontend and backend development, I build modern, scalable solutions from concept to deployment."
-                speed={30}
-                delay={1000}
-                className="block mb-4"
-              />
-
-              <TypewriterText
-                text="My journey in web development started with a curiosity about how websites work, and it quickly evolved into a deep passion for creating digital experiences that make a difference. I believe in writing clean, maintainable code that not only works but is also a joy to work with."
-                speed={30}
-                delay={4000}
-                className="block mb-4"
-              />
-
-              <TypewriterText
-                text="When I'm not coding, you'll find me exploring new technologies, contributing to open-source projects, or sharing knowledge with the developer community. I'm always excited about the next challenge and the opportunity to learn something new."
-                speed={30}
-                delay={7000}
+                text="Hello, I'm Natnael Samuel, a Computer Science graduate from Hawassa University and a passionate full-stack developer."
+                speed={22}
+                delay={300}
                 className="block"
+                onComplete={() => setShowSecond(true)}
               />
-            </div>
+            </p>
+
+            {showSecond && (
+              <p>
+                <TypewriterText
+                  text="I enjoy building clean, responsive, and user-focused web applications that turn ideas into real, functional products. My journey into software development started with curiosity about how websites work, and over time it grew into a strong passion for creating meaningful digital experiences."
+                  speed={16}
+                  delay={250}
+                  className="block"
+                  onComplete={() => setShowThird(true)}
+                />
+              </p>
+            )}
+
+            {showThird && (
+              <p>
+                <TypewriterText
+                  text="I work comfortably across both frontend and backend development, and I enjoy the process of taking a project from concept to deployment. I care about writing code that is not only functional, but also clean, maintainable, and easy to build on in the future."
+                  speed={16}
+                  delay={250}
+                  className="block"
+                  onComplete={() => setShowFourth(true)}
+                />
+              </p>
+            )}
+
+            {showFourth && (
+              <p>
+                <TypewriterText
+                  text="Outside of development, I spend time exploring new technologies, improving my skills, and working on personal projects. I'm always open to learning new things, solving real-world problems, and collaborating on impactful ideas."
+                  speed={16}
+                  delay={250}
+                  className="block"
+                />
+              </p>
+            )}
           </div>
         </div>
       </div>
