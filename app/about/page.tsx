@@ -2,15 +2,11 @@
 import { useState } from "react";
 import Particles from "@/components/backgrounds/Particles/Particles";
 import TypewriterText from "@/components/TextAnimations/TypewriterText/TypewriterText";
-import { useTheme } from "next-themes";
 
 const About = () => {
-  const { theme, resolvedTheme } = useTheme();
   const [showSecond, setShowSecond] = useState(false);
   const [showThird, setShowThird] = useState(false);
   const [showFourth, setShowFourth] = useState(false);
-  const effectiveTheme = resolvedTheme ?? theme ?? "light";
-  const isDark = effectiveTheme === "dark";
 
   return (
     <div className="relative min-h-screen overflow-x-hidden bg-background">
@@ -18,13 +14,13 @@ const About = () => {
       {/* Particles Background */}
       <div className="absolute inset-0 z-0">
         <Particles
-          particleColors={isDark ? ["#ffffff", "#ffffff"] : ["#cbd5e1", "#94a3b8"]}
-          particleCount={isDark ? 500 : 760}
+          particleColors={["#ffffff", "#ffffff"]}
+          particleCount={200}
           particleSpread={10}
-          speed={0.42}
+          speed={0.2}
           particleBaseSize={100}
           moveParticlesOnHover={true}
-          alphaParticles={!isDark}
+          alphaParticles={false}
           disableRotation={false}
         />
       </div>
@@ -38,13 +34,13 @@ const About = () => {
             </p>
             <h2 className="text-4xl font-semibold tracking-tight text-gray-900 dark:text-white sm:text-5xl font-display">
               Hello, I&apos;m Natnael Samuel
-            </h2>
+            </h2> 
           </div>
 
           <div className="space-y-6 text-base leading-8 text-gray-600 dark:text-gray-300 sm:text-lg font-sans">
             <p>
               <TypewriterText
-                text="a Computer Science graduate from Hawassa University and a passionate full-stack developer."
+                text="A Computer Science graduate from Hawassa University and a passionate full-stack developer."
                 speed={22}
                 delay={300}
                 className="block"
