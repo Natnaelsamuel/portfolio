@@ -13,6 +13,41 @@ import {
   Mail,
 } from "lucide-react";
 
+function FidgetSpinner() {
+  return (
+    <svg
+      viewBox="0 0 32 32"
+      fill="none"
+      aria-hidden="true"
+      className="h-6 w-6 text-emerald-500 dark:text-emerald-400"
+    >
+      <g stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+        <animateTransform
+          attributeName="transform"
+          type="rotate"
+          from="0 16 16"
+          to="360 16 16"
+          dur="2.5s"
+          repeatCount="indefinite"
+        />
+        <g>
+          <line x1="16" y1="16" x2="16" y2="6" />
+          <circle cx="16" cy="5" r="3.5" fill="currentColor" stroke="none" />
+        </g>
+        <g transform="rotate(120 16 16)">
+          <line x1="16" y1="16" x2="16" y2="6" />
+          <circle cx="16" cy="5" r="3.5" fill="currentColor" stroke="none" />
+        </g>
+        <g transform="rotate(240 16 16)">
+          <line x1="16" y1="16" x2="16" y2="6" />
+          <circle cx="16" cy="5" r="3.5" fill="currentColor" stroke="none" />
+        </g>
+        <circle cx="16" cy="16" r="3" fill="currentColor" />
+      </g>
+    </svg>
+  );
+}
+
 const Hero = () => {
   const { theme, resolvedTheme } = useTheme();
   const [socialOpen, setSocialOpen] = useState(false);
@@ -185,16 +220,9 @@ const Hero = () => {
             onClick={() => setSocialOpen((s) => !s)}
             aria-expanded={socialOpen}
             aria-label="Toggle social links"
-            className="relative w-12 h-12 bg-white dark:bg-gray-800 rounded-lg flex items-center justify-center shadow-lg border border-gray-200 dark:border-gray-700 hover:border-emerald-500 transition-all duration-300 transform hover:scale-105 group-hover:rotate-6"
+            className="relative flex h-12 w-12 items-center justify-center rounded-lg border border-gray-200 bg-white shadow-lg transition-all duration-300 hover:scale-105 hover:border-emerald-500 dark:border-gray-700 dark:bg-gray-800"
           >
-            <div className="relative w-6 h-6">
-              <div className="absolute inset-0 grid grid-cols-2 gap-0.5">
-                <div className="w-2 h-2 bg-gray-400 dark:bg-gray-500 rounded-sm group-hover:bg-emerald-500 transition-colors duration-200"></div>
-                <div className="w-2 h-2 bg-gray-400 dark:bg-gray-500 rounded-sm group-hover:bg-emerald-500 transition-colors duration-200 animation-delay-100"></div>
-                <div className="w-2 h-2 bg-gray-400 dark:bg-gray-500 rounded-sm group-hover:bg-emerald-500 transition-colors duration-200 animation-delay-200"></div>
-                <div className="w-2 h-2 bg-gray-400 dark:bg-gray-500 rounded-sm group-hover:bg-emerald-500 transition-colors duration-200 animation-delay-300"></div>
-              </div>
-            </div>
+            <FidgetSpinner />
           </button>
         </div>
       </div>
