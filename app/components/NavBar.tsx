@@ -23,6 +23,10 @@ const navItems = [
   { href: "/contact", label: "Contact" },
 ];
 
+function isNavItemActive(href: string, pathname: string) {
+  return href === "/" ? pathname === "/" : pathname.startsWith(href);
+}
+
 const NavBar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -56,17 +60,31 @@ const NavBar = () => {
 
       {/* Desktop Navigation */}
       <div className="hidden items-center gap-1 md:flex">
-        {navItems.map((item) => (
-          <Link key={item.href} href={item.href}>
-            <Button
-              variant="ghost"
-              className="group relative px-4 py-2 text-sm font-medium text-gray-600 transition-all duration-200 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-white"
-            >
-              {item.label}
-              <span className="absolute bottom-0 left-0 h-0.5 w-0 bg-emerald-gradient transition-all duration-300 group-hover:w-full" />
-            </Button>
-          </Link>
-        ))}
+        {navItems.map((item) => {
+          const isActive = isNavItemActive(item.href, pathname);
+
+          return (
+            <Link key={item.href} href={item.href}>
+              <Button
+                variant="ghost"
+                className={cn(
+                  "group relative px-4 py-2 text-sm font-medium transition-all duration-200 hover:bg-gray-100 hover:text-gray-900 dark:hover:bg-gray-800 dark:hover:text-white",
+                  isActive
+                    ? "text-gray-900 dark:text-white"
+                    : "text-gray-600 dark:text-gray-300",
+                )}
+              >
+                {item.label}
+                <span
+                  className={cn(
+                    "absolute bottom-0 left-0 h-0.5 bg-emerald-gradient transition-all duration-300",
+                    isActive ? "w-full" : "w-0 group-hover:w-full",
+                  )}
+                />
+              </Button>
+            </Link>
+          );
+        })}
         <div className="ml-2 border-l border-gray-200 pl-2 dark:border-gray-700">
           <ModeToggle />
         </div>
@@ -116,10 +134,7 @@ const NavBar = () => {
             <nav className="flex-1 overflow-y-auto px-4 py-6">
               <ul className="space-y-2">
                 {navItems.map((item, index) => {
-                  const isActive =
-                    item.href === "/"
-                      ? pathname === "/"
-                      : pathname.startsWith(item.href);
+                  const isActive = isNavItemActive(item.href, pathname);
 
                   return (
                     <li key={item.href}>

@@ -6,7 +6,9 @@ import { Button } from "@/components/ui/button";
 import {
   ArrowRight,
   ArrowUpRight,
+  Download,
   Github,
+  Instagram,
   Linkedin,
   Mail,
   MapPin,
@@ -43,6 +45,11 @@ const socialLinks = [
     href: "https://www.linkedin.com/in/natnael-samuel-a321bb336/",
   },
   { icon: Twitter, label: "Twitter", href: "https://twitter.com/Natnael_sam" },
+  {
+    icon: Instagram,
+    label: "Instagram",
+    href: "https://www.instagram.com/nat_t_x/",
+  },
 ];
 
 export default function Contact() {
@@ -131,7 +138,7 @@ export default function Contact() {
             </div>
           </div>
 
-          <div className="mt-10 flex flex-col gap-3 border-t border-gray-200/80 pt-8 sm:flex-row dark:border-gray-700/70">
+          <div className="mt-10 flex flex-col gap-3 border-t border-gray-200/80 pt-8 sm:flex-row sm:flex-wrap dark:border-gray-700/70">
             <Button
               asChild
               size="lg"
@@ -140,6 +147,21 @@ export default function Contact() {
               <a href="mailto:natisami901@gmail.com" className="flex items-center gap-2">
                 <Mail className="h-4 w-4" />
                 Send an email
+              </a>
+            </Button>
+            <Button
+              asChild
+              variant="outline"
+              size="lg"
+              className="rounded-full border-gray-300 bg-white/80 px-8 font-display text-gray-800 dark:border-gray-600 dark:bg-gray-900/40 dark:text-gray-200"
+            >
+              <a
+                href="/Natnael-Samuel-Resume.pdf"
+                download="Natnael-Samuel-Resume.pdf"
+                className="flex items-center gap-2"
+              >
+                <Download className="h-4 w-4" />
+                Download CV
               </a>
             </Button>
             <Button

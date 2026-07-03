@@ -3,6 +3,7 @@ import { Inter, Poppins, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/app/providers/theme-provider";
 import NavBar from "./components/NavBar";
+import QuickLinks from "./components/QuickLinks";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 
 const inter = Inter({
@@ -50,6 +51,7 @@ export default function RootLayout({
         >
           <NavBar />
           <main>{children}</main>
+          <QuickLinks />
         </ThemeProvider>
       </body>
     </html>
